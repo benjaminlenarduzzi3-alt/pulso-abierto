@@ -4,12 +4,8 @@ import { Link } from 'react-router-dom';
 import { getCryptoPrices, CryptoPrices } from '../services/cryptoService';
 import CryptoCard from '../components/CryptoCard';
 import { useFavoritesStore } from '../store/favoritesStore';
+import { cryptoNames } from '../constants/cryptos';
 
-const cryptoNames: Record<string, string> = {
-  bitcoin: 'Bitcoin',
-  ethereum: 'Ethereum',
-  solana: 'Solana'
-};
 
 function Home() {
   const [prices, setPrices] = useState<CryptoPrices | null>(null);

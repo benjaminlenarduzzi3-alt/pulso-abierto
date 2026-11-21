@@ -1,14 +1,8 @@
-
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getCryptoPrices, CryptoPrices } from '../services/cryptoService';
 import { useFavoritesStore } from '../store/favoritesStore';
-
-const cryptoNames: Record<string, string> = {
-  bitcoin: 'Bitcoin',
-  ethereum: 'Ethereum',
-  solana: 'Solana'
-};
+import { cryptoNames } from '../constants/cryptos';
 
 function Detail() {
   const { id } = useParams();
@@ -18,7 +12,7 @@ function Detail() {
   const favorites = useFavoritesStore((state) => state.favorites);
   const toggleFavorite = useFavoritesStore((state) => state.toggleFavorite);
 
-    async function loadPrices() {
+  async function loadPrices() {
     setError('');
 
     try {
